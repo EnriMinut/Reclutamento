@@ -1,17 +1,17 @@
-package org.example;
+import org.example.EroeNonIdoneoException;
+import org.example.Reclutatore;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+void main(){
+    Reclutatore reclutatore = new Reclutatore();
+    int difficolta = 75;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+    for(int i = 0; i < 5; i++){
+        try {
+            IO.println("Recluta n " + (i + 1) + " : ");
+            reclutatore.recluta(difficolta);
+        }catch(EroeNonIdoneoException e){
+            IO.println("Scartato: " + e.getMessage());
         }
     }
+
 }
